@@ -4,6 +4,7 @@
   "description": "",
   "main": "gulpfile.js",
   "dependencies": {
+    "gulp-autoprefixer": "^6.1.0",
     "gulp-sourcemaps": "^2.6.5"
   },
   "devDependencies": {
@@ -17,14 +18,15 @@
     "gulp-babel": "^8.0.0",
     "gulp-clean": "^0.4.0",
     "gulp-imagemin": "^6.0.0",
-    "gulp-livereload": "^4.0.1",
     "gulp-newer": "^1.4.0",
     "gulp-refresh": "^1.1.0",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
-    "gulp-uglify": "^3.0.2",
     "gulp-uglify-es": "^1.0.4"
   },
+  "browserslist": [
+    "last 4 version"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

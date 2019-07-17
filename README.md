@@ -5,7 +5,7 @@ Run the following command to check if Node.js is correctly installed:
 npm -v
 ```
 
-## Install Node.js dependencies
+## Install dependencies
 
 Before running your gulp project you need to install the dependencies.
 Run the following command in your terminal, at the root the project:

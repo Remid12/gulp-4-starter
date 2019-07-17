@@ -8,6 +8,7 @@ const newer = require('gulp-newer');
 const imagemin = require('gulp-imagemin');
 const sourcemaps = require('gulp-sourcemaps');
 const browserSync = require('browser-sync').create();
+const autoprefixer = require('gulp-autoprefixer');
 
 const paths = {
   html : {
@@ -40,6 +41,7 @@ function html() {
 function css() {
   return src(paths.css.src)
     .pipe(sourcemaps.init())
+    .pipe(autoprefixer())
     .pipe(sass({outputStyle: 'compressed'}))
     .pipe(sourcemaps.write())
     .pipe(dest(paths.css.dest));
