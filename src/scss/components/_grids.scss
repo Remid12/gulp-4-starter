@@ -1,0 +1,21 @@
+$grid-spacing: 12px;
+
+@media screen and (min-width: $bp-tablet) {
+  .grid {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+    width: calc(100% + #{$grid-spacing*2});
+    margin: 0;
+    margin-left: -$grid-spacing;
+    padding: 0;
+    list-style: none;
+
+    .grid__item {
+      position: relative;
+      width: 50%;
+      padding: $grid-spacing;
+    }
+  }
+}

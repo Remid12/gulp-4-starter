@@ -1,0 +1,23 @@
+@font-face {
+	src: url('https://www.axis-praxis.org/fonts/webfonts/IBMPlexSansVar-Roman.woff2');
+	font-family:'IBM Plex Sans Variable';
+	font-style: normal;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #F6EEE3;
+  font-family: 'IBM Plex Sans Variable', sans-serif;
+}
+
+
+p {
+  max-width: rem(600);
+}
+
+img {
+  display: block;
+  width: 100%;
+  //max-width: rem(600);
+}
