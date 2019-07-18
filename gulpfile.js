@@ -20,8 +20,15 @@ const paths = {
     dest: 'dist/assets/css'
   },
   js : {
-    src: 'src/js/**/*.js',
+    src: [
+      'src/js/**/*.js',
+      '!src/js/vendors/**/*.js'
+     ],
     dest: 'dist/assets/js'
+  },
+  vendors : {
+    src: 'src/js/vendors/**/*.js',
+    dest: 'dist/assets/js/vendors'
   },
   img : {
     src: 'src/images/**/*',
@@ -49,10 +56,17 @@ function css() {
 
 function javascript() {
   return src(paths.js.src)
+    .pipe(sourcemaps.init())
     .pipe(babel({presets: [['@babel/preset-env']]}))
     .pipe(uglify())
     .pipe(rename({ extname: '.min.js' }))
+    .pipe(sourcemaps.write('.'))
     .pipe(dest(paths.js.dest));
+}
+
+function vendors() {
+  return src(paths.vendors.src)
+    .pipe(dest(paths.vendors.dest));
 }
 
 function images() {
@@ -93,10 +107,11 @@ function watchJs() {
 
 
 // exports (public tasks)
-exports.build = series(clean, parallel(html, css, javascript, images));
+exports.build = series(clean, parallel(html, css, javascript, vendors, images));
 exports.clean = clean;
 exports.html = html;
 exports.css = css;
 exports.js = javascript;
+exports.vendors = vendors;
 exports.img = images;
 exports.watch = parallel(watchCss, watchHtml, watchJs, browserLive);
