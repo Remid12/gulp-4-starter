@@ -26,3 +26,8 @@ Run the following command:
 gulp watch
 ```
 You can work now. Happy development 🤘
+
+If you got a "EACCES" error during the installation, give yourself the correct admin right:
+```
+sudo chown -R $USER PATH_TO_THE_PROJECT
+```
