@@ -1,6 +1,8 @@
-const { series, parallel, src, dest, watch } = require('gulp');
+const {
+  series, parallel, src, dest, watch,
+} = require('gulp');
 const del = require('del');
-const sass = require("gulp-sass");
+const sass = require('gulp-sass');
 const babel = require('gulp-babel');
 const rename = require('gulp-rename');
 const uglify = require('gulp-uglify-es').default;
@@ -12,33 +14,33 @@ const autoprefixer = require('gulp-autoprefixer');
 const eslint = require('gulp-eslint');
 
 const paths = {
-  html : {
+  html: {
     src: 'src/**/*.html',
-    dest: 'dist' 
+    dest: 'dist',
   },
-  css : {
+  css: {
     src: 'src/scss/styles.scss',
-    dest: 'dist/assets/css'
+    dest: 'dist/assets/css',
   },
-  js : {
+  js: {
     src: [
       'src/js/**/*.js',
-      '!src/js/vendors/**/*.js'
-     ],
-    dest: 'dist/assets/js'
+      '!src/js/vendors/**/*.js',
+    ],
+    dest: 'dist/assets/js',
   },
-  vendors : {
+  vendors: {
     src: 'src/js/vendors/**/*.js',
-    dest: 'dist/assets/js/vendors'
+    dest: 'dist/assets/js/vendors',
   },
-  img : {
+  img: {
     src: 'src/images/**/*',
-    dest: 'dist/assets/images'
-  }
+    dest: 'dist/assets/images',
+  },
 };
 
-function clean(){
-  return del('dist/**', {force:true});
+function clean() {
+  return del('dist/**', { force: true });
 }
 
 function html() {
@@ -50,7 +52,7 @@ function css() {
   return src(paths.css.src)
     .pipe(sourcemaps.init())
     .pipe(autoprefixer())
-    .pipe(sass({outputStyle: 'compressed'}))
+    .pipe(sass({ outputStyle: 'compressed' }))
     .pipe(sourcemaps.write())
     .pipe(dest(paths.css.dest));
 }
@@ -60,7 +62,7 @@ function javascript() {
     .pipe(sourcemaps.init())
     .pipe(eslint())
     .pipe(eslint.format())
-    .pipe(babel({presets: [['@babel/preset-env']]}))
+    .pipe(babel({ presets: [['@babel/preset-env']] }))
     .pipe(uglify())
     .pipe(rename({ extname: '.min.js' }))
     .pipe(sourcemaps.write('.'))
@@ -79,8 +81,8 @@ function images() {
       imagemin([
         imagemin.gifsicle({ interlaced: true }),
         imagemin.jpegtran({ progressive: true }),
-        imagemin.optipng({ optimizationLevel: 5 })
-      ])
+        imagemin.optipng({ optimizationLevel: 5 }),
+      ]),
     )
     .pipe(dest(paths.img.dest));
 }
@@ -88,10 +90,10 @@ function images() {
 function browserLive(done) {
   browserSync.init({
     server: {
-      baseDir: "./dist"
+      baseDir: './dist',
     },
     port: 3000,
-    notify: false
+    notify: false,
   });
   done();
 }
