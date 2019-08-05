@@ -1,10 +1,8 @@
-let hola = "hoolaaaaaa";
-
 const materials = [
   'Hydrogen',
   'Helium',
   'Lithium',
-  'Beryllium'
+  'Beryllium',
 ];
 
 console.log(materials.map(material => material.length));

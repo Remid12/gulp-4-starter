@@ -9,6 +9,7 @@ const imagemin = require('gulp-imagemin');
 const sourcemaps = require('gulp-sourcemaps');
 const browserSync = require('browser-sync').create();
 const autoprefixer = require('gulp-autoprefixer');
+const eslint = require('gulp-eslint');
 
 const paths = {
   html : {
@@ -57,6 +58,8 @@ function css() {
 function javascript() {
   return src(paths.js.src)
     .pipe(sourcemaps.init())
+    .pipe(eslint())
+    .pipe(eslint.format())
     .pipe(babel({presets: [['@babel/preset-env']]}))
     .pipe(uglify())
     .pipe(rename({ extname: '.min.js' }))
