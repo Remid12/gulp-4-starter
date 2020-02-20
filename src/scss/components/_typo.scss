@@ -1,7 +1,7 @@
 @font-face {
-	src: url('https://www.axis-praxis.org/fonts/webfonts/IBMPlexSansVar-Roman.woff2');
-	font-family:'IBM Plex Sans Variable';
-	font-style: normal;
+  src: url('../fonts/IBMPlexSansVar-Roman.woff2');
+  font-family: 'IBM Plex Sans Variable';
+  font-style: normal;
 }
 
 body {
@@ -19,5 +19,4 @@ p {
 img {
   display: block;
   width: 100%;
-  //max-width: rem(600);
 }

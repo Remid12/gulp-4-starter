@@ -1,8 +1,10 @@
-const materials = [
-  'Hydrogen',
-  'Helium',
-  'Lithium',
-  'Beryllium',
-];
+document.addEventListener('DOMContentLoaded', () => {
+  const materials = [
+    'Hydrogen',
+    'Helium',
+    'Lithium',
+    'Beryllium',
+  ];
 
-console.log(materials);
+  console.log(materials);
+});

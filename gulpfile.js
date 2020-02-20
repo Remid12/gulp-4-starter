@@ -37,6 +37,10 @@ const paths = {
     src: 'src/images/**/*',
     dest: 'dist/assets/images',
   },
+  font: {
+    src: 'src/fonts/**/*',
+    dest: 'dist/assets/fonts',
+  },
 };
 
 function clean() {
@@ -87,6 +91,11 @@ function images() {
     .pipe(dest(paths.img.dest));
 }
 
+function fonts() {
+  return src(paths.font.src)
+    .pipe(dest(paths.font.dest));
+}
+
 function browserLive(done) {
   browserSync.init({
     server: {
@@ -112,11 +121,12 @@ function watchJs() {
 
 
 // exports (public tasks)
-exports.build = series(clean, parallel(html, css, javascript, vendors, images));
+exports.build = series(clean, parallel(html, css, javascript, vendors, images, fonts));
 exports.clean = clean;
 exports.html = html;
 exports.css = css;
 exports.js = javascript;
 exports.vendors = vendors;
 exports.img = images;
+exports.fonts = fonts;
 exports.watch = parallel(watchCss, watchHtml, watchJs, browserLive);
