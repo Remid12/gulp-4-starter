@@ -3,10 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "gulpfile.js",
-  "dependencies": {
-    "gulp-autoprefixer": "^6.1.0",
-    "gulp-sourcemaps": "^2.6.5"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.6.2",
     "@babel/preset-env": "^7.6.2",
@@ -27,7 +24,9 @@
     "gulp-newer": "^1.4.0",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
-    "gulp-uglify-es": "^1.0.4"
+    "gulp-uglify-es": "^1.0.4",
+    "gulp-autoprefixer": "^6.1.0",
+    "gulp-sourcemaps": "^2.6.5"
   },
   "browserslist": [
     "last 4 version"
