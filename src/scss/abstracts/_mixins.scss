@@ -4,6 +4,31 @@
   white-space: nowrap;
 }
 
+@mixin absolute-full() {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@mixin object-fit() {
+  position: absolute;
+  display: block;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  @supports not (object-fit: cover) {
+    height: auto;
+  }
+}
+
 @mixin full-width-bg($color) {
   position: relative;
 
@@ -21,7 +46,7 @@
   }
 }
 
-@mixin flexCenter {
+@mixin flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
